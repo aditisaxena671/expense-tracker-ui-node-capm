@@ -1,0 +1,80 @@
+<mvc:View
+    controllerName="aditi.expense.ui.project1.controller.View1"
+    xmlns:l="sap.ui.layout"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:core="sap.ui.core"
+    xmlns="sap.m"
+    height="100%"
+>
+    <HBox
+        width="100%"
+        height="100%"
+    >
+        <VBox width="60%">
+            <Button text="panel1" />
+        </VBox>
+        <VBox width="40%">
+            <l:VerticalLayout width="100%">
+                <Label
+                    text="First Name"
+                    labelFor="First Name"
+                />
+                <Input
+                    id="firstNameInput"
+                    placeholder="Enter First Name"
+                    class="sapUiSmallMarginBottom"
+                />
+
+                <Label
+                    text="Last Name"
+                    labelFor="Last Name"
+                />
+                <Input
+                    id="lastNameInput"
+                    placeholder="Enter Last Name"
+                    class="sapUiSmallMarginBottom"
+                />
+
+                <Label
+                    text="Email"
+                    labelFor="inputEmail"
+                />
+                <Input
+                    id="inputEmail"
+                    type="Email"
+                    placeholder="Enter email"
+                    class="sapUiSmallMarginBottom"
+                />
+                <Label
+                    text="Password"
+                    labelFor="Password"
+                />
+                <Input
+                    id="passwordInput"
+                    type="password"
+                    placeholder="Password"
+                    class="sapUiSmallMarginBottom"
+                />
+                <Label
+                    text="Confirm Password"
+                    labelFor="Confirm Password"
+                />
+                <Input
+                    id="confirmPasswordInput"
+                    placeholder="Confirm Password"
+                    class="sapUiSmallMarginBottom"
+                />
+                <Button
+                    type="Emphasized"
+                    text="Register"
+                    press="onRegisterPress"
+                />
+				<Label
+				id="showError"
+				visible="false"
+                    text="Some fields are empty"
+                />
+            </l:VerticalLayout>
+        </VBox>
+    </HBox>
+</mvc:View>

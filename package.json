@@ -2,31 +2,45 @@
   "name": "expense-tracker",
   "version": "1.0.0",
   "description": "A simple CAP project.",
-  "repository": "<Add your repository here>",
+  "repository": "https://github.com/aditisaxena671/expense-tracker.git",
   "license": "UNLICENSED",
   "private": true,
   "dependencies": {
+    "@cap-js/hana": "^2",
     "@sap/cds": "^9",
+    "@sap/xssec": "^4",
     "express": "^4",
     "generator-easy-ui5": "^3.8.2",
-    "@cap-js/hana": "^2"
+    "hdb": "^2.25.1",
+    "sqlite3": "^5.1.7"
   },
   "engines": {
     "node": ">=20"
   },
   "devDependencies": {
     "@cap-js/cds-types": "^0.11.0",
-    "@cap-js/sqlite": "^2",
     "@sap/cds-dk": ">=8",
-    "cds-swagger-ui-express": "^0.10.0"
+    "cds-swagger-ui-express": "^0.10.0",
+    "rimraf": "^5.0.5",
+    "mbt": "^1.2.29"
   },
   "scripts": {
-    "start": "cds-serve"
+    "start": "cds run",
+    "watch-project1": "cds watch --open project1/webapp/index.html?sap-ui-xx-viewCache=false",
+    "undeploy": "cf undeploy expense-tracker --delete-services --delete-service-keys --delete-service-brokers",
+    "build": "rimraf resources mta_archives && mbt build --mtar archive",
+    "deploy": "cf deploy mta_archives/archive.mtar --retries 1"
   },
   "cds": {
     "requires": {
+      "[production]": {
+        "db": "hana",
+        "auth": "basic"
+      },
       "[hybrid]": {
-        "db": "hana"
+        "db": {
+          "kind": "hana"
+        }
       }
     }
   }

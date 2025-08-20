@@ -1,0 +1,6 @@
+<mvc:View controllerName="aditi.expense.ui.project1.controller.Dashboard"
+    displayBlock="true"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+    <Button text="Hello"></Button>
+</mvc:View>
