@@ -13,19 +13,23 @@
         <VBox width="60%">
             <Button text="panel1" />
         </VBox>
-        <VBox width="40%">
-            <l:VerticalLayout width="100%">
+        <VBox  width="40%" alignItems="Center" justifyContent="Center" class="rightPanel" visible="true">
+            <l:VerticalLayout id="rightPanelRegister" width="100%" >
+            <Title text="Create Account" level="H2" class="sapUiSmallMarginBottom" />
                 <Label
                     text="First Name"
                     labelFor="First Name"
+                    design="Bold" 
                 />
                 <Input
+                
                     id="firstNameInput"
                     placeholder="Enter First Name"
                     class="sapUiSmallMarginBottom"
                 />
 
                 <Label
+                design="Bold" 
                     text="Last Name"
                     labelFor="Last Name"
                 />
@@ -38,6 +42,7 @@
                 <Label
                     text="Email"
                     labelFor="inputEmail"
+                    design="Bold" 
                 />
                 <Input
                     id="inputEmail"
@@ -48,33 +53,100 @@
                 <Label
                     text="Password"
                     labelFor="Password"
+                    design="Bold" 
                 />
                 <Input
+                    type="Password"
                     id="passwordInput"
-                    type="password"
                     placeholder="Password"
                     class="sapUiSmallMarginBottom"
                 />
                 <Label
                     text="Confirm Password"
+                    design="Bold" 
                     labelFor="Confirm Password"
                 />
                 <Input
+                    type="Password"
                     id="confirmPasswordInput"
                     placeholder="Confirm Password"
                     class="sapUiSmallMarginBottom"
+                    
                 />
-                <Button
+                    <Button
                     type="Emphasized"
                     text="Register"
                     press="onRegisterPress"
+                    class="sapUiMediumMarginTop"
                 />
 				<Label
-				id="showError"
-				visible="false"
+				    id="showErrorRegister"
+				    visible="false"
                     text="Some fields are empty"
+                    design="Bold" 
                 />
             </l:VerticalLayout>
+            <!-- login -->
+            <l:VerticalLayout id="rightPanelLogin" width="100%" visible="false" >
+            <Title text="Create Account" level="H2" class="sapUiSmallMarginBottom" />
+                
+                <Label
+                    text="Email"
+                    labelFor="inputEmail"
+                    design="Bold" 
+                />
+                <Input
+                    id="loginEmail"
+                    type="Email"
+                    placeholder="Enter email"
+                    class="sapUiSmallMarginBottom"
+                />
+                <Label
+                    text="Password"
+                    labelFor="Password"
+                    design="Bold" 
+                />
+                <Input
+                    type="Password"
+                    id="loginPassword"
+                    placeholder="Password"
+                    class="sapUiSmallMarginBottom"
+                />
+                
+                <Button
+                    type="Emphasized"
+                    text="Login"
+                    press="onLoginPress"
+                    class="sapUiMediumMarginTop"
+                />
+                
+				<Label
+				    id="showErrorLogin"
+				    visible="false"
+                    text="Some fields are empty"
+                    design="Bold" 
+                />
+            </l:VerticalLayout>
+            <HBox class="sapUiSmallMargin" >
+                    <Button
+                    type="Emphasized"
+                    text="Register"
+                    press="toRegisterPressed"
+                    class="sapUiMediumMarginTop"
+                    visible="false"
+                    id="goRegister"
+                />
+                <Button
+                    type="Emphasized"
+                    text="Login"
+                    press="toLoginPressed"
+                    class="sapUiMediumMarginTop"
+                    id="goLogin"
+                />
+                </HBox>
         </VBox>
+        
+        
     </HBox>
+    
 </mvc:View>
