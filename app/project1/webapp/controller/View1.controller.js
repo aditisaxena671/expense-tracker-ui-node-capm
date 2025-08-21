@@ -1,5 +1,3 @@
-
-
 sap.ui.define([
     "sap/ui/core/mvc/Controller",
     "sap/m/MessageToast"
@@ -39,6 +37,21 @@ sap.ui.define([
                 this.getView().byId("showErrorRegister").setVisible(true);
                 return;
             }
+            var minNumberofChars = 6;
+            var maxNumberofChars = 25;
+            var regularExpression = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,25}$/;
+            if (password.length < minNumberofChars || password.length > maxNumberofChars) {
+                this.getView().byId("showErrorRegister").setText("Password's length should be between 6-25 characters")
+                this.getView().byId("showErrorRegister").setVisible(true);
+                return;
+                
+            }
+            if (!regularExpression.test(password)) {
+                this.getView().byId("showErrorRegister").setVisible(true);
+                this.getView().byId("showErrorRegister").setText("Please enter a strong password");
+                return;
+            }
+            
             if (!confirmPassword) {
                 this.getView().byId("showErrorRegister").setText("Please Enter Password to confirm")
                 this.getView().byId("showErrorRegister").setVisible(true);
@@ -66,11 +79,11 @@ sap.ui.define([
                 password: password
             };
             $.ajax({
-                url:"/odata/v4/expense/registerUser",
-                type:"POST",
-                contentType:"application/json",
-                data:JSON.stringify(oPayload),
-                success:function(oData){
+                url: "/odata/v4/expense/registerUser",
+                type: "POST",
+                contentType: "application/json",
+                data: JSON.stringify(oPayload),
+                success: function (oData) {
                     MessageToast.show("User registered successfully!");
                     console.log("Response:", oData);
                     oView.byId("firstNameInput").setText("");
@@ -79,24 +92,61 @@ sap.ui.define([
                     oView.byId("passwordInput").setText("");
                     oView.byId("confirmPasswordInput").setText("");
                 },
-                error:function(oError){
+                error: function (oError) {
                     MessageToast.show("User registered Failed!");
-                    console.log("Error : ",oError);
+                    console.log("Error : ", oError);
                 }
             })
         },
-        onLoginPress:function(){
-            console.log("cheking login creds");
+        onLoginPress: function () {
+            var oView = this.getView();
+            var email = oView.byId("loginEmail").getValue();
+            var password = oView.byId("loginPassword").getValue();
+            if (!email) {
+                MessageToast.show("Email can't be empty");
+            }
+            const validateEmail = (email) => {
+                return email.match(
+                    /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+                );
+            };
+            if (!validateEmail(email)) {
+                MessageToast.show("Not a valid Email Id");
+                return
+            }
+            if (!password) {
+                MessageToast.show("Password can't be empty");
+            }
+
+            var oPayload = {
+                email: email,
+                password: password
+            };
+            $.ajax({
+                url: "/odata/v4/expense/login",
+                type: "POST",
+                contentType: "application/json",
+                data: JSON.stringify(oPayload),
+                success: function (oData) {
+                    MessageToast.show("User Login Successfull!");
+                    console.log("Login Successfull ", oData);
+                },
+                error: function (oError) {
+                    MessageToast.show("User Login Failed!");
+                    console.log("Error ", oError)
+                }
+
+            })
         },
-        toLoginPressed:function(){
-            var oView= this.getView();
+        toLoginPressed: function () {
+            var oView = this.getView();
             oView.byId("rightPanelLogin").setVisible(true);
             oView.byId("rightPanelRegister").setVisible(false);
             oView.byId("goRegister").setVisible(true);
             oView.byId("goLogin").setVisible(false);
         },
-        toRegisterPressed:function(){
-            var oView= this.getView();
+        toRegisterPressed: function () {
+            var oView = this.getView();
             oView.byId("rightPanelLogin").setVisible(false);
             oView.byId("rightPanelRegister").setVisible(true);
             oView.byId("goRegister").setVisible(false);
