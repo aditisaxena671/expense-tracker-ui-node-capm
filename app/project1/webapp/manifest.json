@@ -93,17 +93,22 @@
       },
       "routes": [
         {
-          "name": "RouteView1",
-          "pattern": ":?query:",
-          "target": [
-            "TargetView1"
-          ]
+          "pattern": "",
+          "name": "login",
+          "target": "login"
+        },
+        {
+          "pattern": "base",
+          "name": "base",
+          "target": "base"
         }
       ],
       "targets": {
-        "TargetView1": {
-          "id": "View1",
-          "name": "View1"
+        "login": {
+          "viewName": "View1"
+        },
+        "base": {
+          "viewName": "BaseContainer"
         }
       }
     },

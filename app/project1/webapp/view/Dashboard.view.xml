@@ -1,6 +1,17 @@
-<mvc:View controllerName="aditi.expense.ui.project1.controller.Dashboard"
+<mvc:View controllerName="aditi.expense.ui.project1.controller.BaseContainer"
     displayBlock="true"
     xmlns:mvc="sap.ui.core.mvc"
     xmlns="sap.m">
-    <Button text="Hello"></Button>
+    <GenericTile id="firstUpdateOfMonth" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Status Loaded - no press event"
+		subheader="Subheader">
+		<TileContent unit="Unit" footer="Footer">
+			<ImageContent src="sap-icon://money-bills" />
+		</TileContent>
+	</GenericTile>
+	<GenericTile id="lastUpdatedDate" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Last Updated details"
+		subheader="Subheader" press="press">
+		<TileContent unit="Unit" footer="Footer">
+			<ImageContent src="sap-icon://money-bills" />
+		</TileContent>
+	</GenericTile>
 </mvc:View>

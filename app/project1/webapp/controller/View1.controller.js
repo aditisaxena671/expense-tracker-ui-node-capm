@@ -86,11 +86,11 @@ sap.ui.define([
                 success: function (oData) {
                     MessageToast.show("User registered successfully!");
                     console.log("Response:", oData);
-                    oView.byId("firstNameInput").setText("");
-                    oView.byId("lastNameInput").setText("");
-                    oView.byId("inputEmail").setText("");
-                    oView.byId("passwordInput").setText("");
-                    oView.byId("confirmPasswordInput").setText("");
+                    oView.byId("firstNameInput").setValue("");
+                    oView.byId("lastNameInput").setValue("");
+                    oView.byId("inputEmail").setValue("");
+                    oView.byId("passwordInput").setValue("");
+                    oView.byId("confirmPasswordInput").setValue("");
                 },
                 error: function (oError) {
                     MessageToast.show("User registered Failed!");
@@ -122,6 +122,7 @@ sap.ui.define([
                 email: email,
                 password: password
             };
+            var that = this;
             $.ajax({
                 url: "/odata/v4/expense/login",
                 type: "POST",
@@ -130,6 +131,8 @@ sap.ui.define([
                 success: function (oData) {
                     MessageToast.show("User Login Successfull!");
                     console.log("Login Successfull ", oData);
+                    const oRoute = sap.ui.core.UIComponent.getRouterFor(that);
+                    oRoute.navTo("base");
                 },
                 error: function (oError) {
                     MessageToast.show("User Login Failed!");

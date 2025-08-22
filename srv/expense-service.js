@@ -36,12 +36,9 @@ module.exports = class ExpenseService extends cds.ApplicationService {
         if (lastName.length < 4) {
           return req.error(500, "Last name should not be less than 4 characters");
         }
-
-
         if (!validateEmail(email)) {
           return req.error(500, "Invalid Email Id");
         }
-
         var minNumberofChars = 6;
         var maxNumberofChars = 25;
         var regularExpression = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,25}$/;
