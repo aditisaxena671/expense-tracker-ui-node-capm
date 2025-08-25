@@ -1,0 +1,246 @@
+@server=http://localhost:4004
+@username=alice
+@password=
+
+
+### Users
+# @name Users_GET
+GET {{server}}/odata/v4/expense/Users
+Authorization: Basic {{username}}:{{password}}
+
+
+### Users
+# @name Users_POST
+POST {{server}}/odata/v4/expense/Users
+Content-Type: application/json
+Authorization: Basic {{username}}:{{password}}
+
+{
+  "ID": "29116816-47bc-40fe-afde-39eb394b7c29",
+  "firstName": "firstName-29116816",
+  "lastName": "lastName-29116816",
+  "email": "email-29116816",
+  "password": "password-29116816",
+  "createdAt": "2019-01-08T00:00:00.000Z",
+  "updatedAt": "2004-12-09T00:00:00.000Z",
+  "expenses": [
+    {
+      "ID": "13127375-05a2-4195-a9ba-d9da34682926",
+      "title": "title-13127375",
+      "amount": 17748893.13,
+      "date": "2010-09-21",
+      "note": "note-13127375",
+      "category": {
+        "ID": "27063756-f9d0-4fda-8c6c-9253483bad19"
+      },
+      "createdAt": "2002-10-05T00:00:00.000Z",
+      "updatedAt": "2011-04-16T00:00:00.000Z"
+    },
+    {
+      "ID": "13127376-bc10-41ec-8587-9daa111a9796",
+      "title": "title-13127376",
+      "amount": 3612685.26,
+      "date": "2015-04-16",
+      "note": "note-13127376",
+      "category": {
+        "ID": "27063756-f9d0-4fda-8c6c-9253483bad19"
+      },
+      "createdAt": "2005-12-19T00:00:00.000Z",
+      "updatedAt": "2022-10-10T00:00:00.000Z"
+    }
+  ]
+}
+
+
+### Users
+# @name Users_PATCH
+PATCH {{server}}/odata/v4/expense/Users/29116816-47bc-40fe-afde-39eb394b7c29
+Content-Type: application/json
+Authorization: Basic {{username}}:{{password}}
+
+{
+  "ID": "29116816-47bc-40fe-afde-39eb394b7c29",
+  "firstName": "firstName-29116816",
+  "lastName": "lastName-29116816",
+  "email": "email-29116816",
+  "password": "password-29116816",
+  "createdAt": "2019-01-08T00:00:00.000Z",
+  "updatedAt": "2004-12-09T00:00:00.000Z",
+  "expenses": [
+    {
+      "ID": "13127375-05a2-4195-a9ba-d9da34682926",
+      "title": "title-13127375",
+      "amount": 17748893.13,
+      "date": "2010-09-21",
+      "note": "note-13127375",
+      "category": {
+        "ID": "27063756-f9d0-4fda-8c6c-9253483bad19"
+      },
+      "createdAt": "2002-10-05T00:00:00.000Z",
+      "updatedAt": "2011-04-16T00:00:00.000Z"
+    },
+    {
+      "ID": "13127376-bc10-41ec-8587-9daa111a9796",
+      "title": "title-13127376",
+      "amount": 3612685.26,
+      "date": "2015-04-16",
+      "note": "note-13127376",
+      "category": {
+        "ID": "27063756-f9d0-4fda-8c6c-9253483bad19"
+      },
+      "createdAt": "2005-12-19T00:00:00.000Z",
+      "updatedAt": "2022-10-10T00:00:00.000Z"
+    }
+  ]
+}
+
+
+### Users
+# @name Users_DELETE
+DELETE {{server}}/odata/v4/expense/Users/29116816-47bc-40fe-afde-39eb394b7c29
+Content-Type: application/json
+Authorization: Basic {{username}}:{{password}}
+
+
+### Expenses
+# @name Expenses_GET
+GET {{server}}/odata/v4/expense/Expenses
+Authorization: Basic {{username}}:{{password}}
+
+
+### Expenses
+# @name Expenses_POST
+POST {{server}}/odata/v4/expense/Expenses
+Content-Type: application/json
+Authorization: Basic {{username}}:{{password}}
+
+{
+  "ID": "13127375-05a2-4195-a9ba-d9da34682926",
+  "title": "title-13127375",
+  "amount": 17748893.13,
+  "date": "2010-09-21",
+  "note": "note-13127375",
+  "category": {
+    "ID": "27063756-f9d0-4fda-8c6c-9253483bad19"
+  },
+  "createdAt": "2002-10-05T00:00:00.000Z",
+  "updatedAt": "2011-04-16T00:00:00.000Z"
+}
+
+
+### Expenses
+# @name Expenses_PATCH
+PATCH {{server}}/odata/v4/expense/Expenses/13127375-05a2-4195-a9ba-d9da34682926
+Content-Type: application/json
+Authorization: Basic {{username}}:{{password}}
+
+{
+  "ID": "13127375-05a2-4195-a9ba-d9da34682926",
+  "title": "title-13127375",
+  "amount": 17748893.13,
+  "date": "2010-09-21",
+  "note": "note-13127375",
+  "category": {
+    "ID": "27063756-f9d0-4fda-8c6c-9253483bad19"
+  },
+  "createdAt": "2002-10-05T00:00:00.000Z",
+  "updatedAt": "2011-04-16T00:00:00.000Z"
+}
+
+
+### Expenses
+# @name Expenses_DELETE
+DELETE {{server}}/odata/v4/expense/Expenses/13127375-05a2-4195-a9ba-d9da34682926
+Content-Type: application/json
+Authorization: Basic {{username}}:{{password}}
+
+
+### Categories
+# @name Categories_GET
+GET {{server}}/odata/v4/expense/Categories
+Authorization: Basic {{username}}:{{password}}
+
+
+### Categories
+# @name Categories_POST
+POST {{server}}/odata/v4/expense/Categories
+Content-Type: application/json
+Authorization: Basic {{username}}:{{password}}
+
+{
+  "ID": "27063756-f9d0-4fda-8c6c-9253483bad19",
+  "name": "name-27063756",
+  "description": "description-27063756",
+  "createdAt": "2010-08-01T00:00:00.000Z"
+}
+
+
+### Categories
+# @name Categories_PATCH
+PATCH {{server}}/odata/v4/expense/Categories/27063756-f9d0-4fda-8c6c-9253483bad19
+Content-Type: application/json
+Authorization: Basic {{username}}:{{password}}
+
+{
+  "ID": "27063756-f9d0-4fda-8c6c-9253483bad19",
+  "name": "name-27063756",
+  "description": "description-27063756",
+  "createdAt": "2010-08-01T00:00:00.000Z"
+}
+
+
+### Categories
+# @name Categories_DELETE
+DELETE {{server}}/odata/v4/expense/Categories/27063756-f9d0-4fda-8c6c-9253483bad19
+Content-Type: application/json
+Authorization: Basic {{username}}:{{password}}
+
+
+### getTotalExpensesByUser
+# @name getTotalExpensesByUser_POST
+POST {{server}}/odata/v4/expense/getTotalExpensesByUser
+Content-Type: application/json
+Authorization: Basic {{username}}:{{password}}
+
+{
+  "userId": "14771369-fc46-4f9f-80e2-7a0c75a88deb"
+}
+
+
+### registerUser
+# @name registerUser_POST
+POST {{server}}/odata/v4/expense/registerUser
+Content-Type: application/json
+Authorization: Basic {{username}}:{{password}}
+
+{
+  "firstName": "firstName-15015061",
+  "lastName": "lastName-15015061",
+  "email": "email-15015061",
+  "password": "password-15015061"
+}
+
+
+### login
+# @name login_POST
+POST {{server}}/odata/v4/expense/login
+Content-Type: application/json
+Authorization: Basic {{username}}:{{password}}
+
+{
+  "email": "email-13145220",
+  "password": "password-13145220"
+}
+
+
+### create expence
+POST http://localhost:4004/odata/v4/expense/Expenses
+Content-Type: application/json
+
+{
+  "title": "making test",
+  "amount": 110,
+  "date": "2017-04-13",
+  "note": "testing",
+  "user_ID": "79d87da8-0af9-4922-9f55-4357c809ed28"
+}

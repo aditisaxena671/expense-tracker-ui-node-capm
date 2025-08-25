@@ -95,7 +95,10 @@ module.exports = class ExpenseService extends cds.ApplicationService {
         if (password != existUser.password) {
           return req.error(500, "Wrong Password");
         }
-        return { success: true, email: existUser.email, firstName: existUser.firstName };
+        var results={
+           email: existUser.email, firstName: existUser.firstName , loginID:existUser.ID
+        }
+        return { success: true,results : results};
       }
     });
     return super.init()

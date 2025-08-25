@@ -70,6 +70,9 @@
           "autoExpandSelect": true,
           "earlyRequests": true
         }
+      },
+      "userModel":{
+        "type": "sap.ui.model.json.JSONModel"
       }
     },
     "resources": {
@@ -101,6 +104,16 @@
           "pattern": "base",
           "name": "base",
           "target": "base"
+        },
+        {
+          "pattern": "dashboard",
+          "name": "dashboard",
+          "target": "dashboard"
+        },
+        {
+          "pattern": "addExpense",
+          "name": "addExpense",
+          "target": "addExpense"
         }
       ],
       "targets": {
@@ -109,6 +122,12 @@
         },
         "base": {
           "viewName": "BaseContainer"
+        },
+        "dashboard": {
+          "viewName": "Dashboard"
+        },
+        "addExpense":{
+          "viewName": "AddExpense"  
         }
       }
     },

@@ -105,6 +105,9 @@ sap.ui.define([
             if (!email) {
                 MessageToast.show("Email can't be empty");
             }
+            if (!password) {
+                MessageToast.show("password can't be empty");
+            }
             const validateEmail = (email) => {
                 return email.match(
                     /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
@@ -113,9 +116,6 @@ sap.ui.define([
             if (!validateEmail(email)) {
                 MessageToast.show("Not a valid Email Id");
                 return
-            }
-            if (!password) {
-                MessageToast.show("Password can't be empty");
             }
 
             var oPayload = {
@@ -129,10 +129,18 @@ sap.ui.define([
                 contentType: "application/json",
                 data: JSON.stringify(oPayload),
                 success: function (oData) {
-                    MessageToast.show("User Login Successfull!");
-                    console.log("Login Successfull ", oData);
-                    const oRoute = sap.ui.core.UIComponent.getRouterFor(that);
-                    oRoute.navTo("base");
+                    if(oData && oData.results){
+                        MessageToast.show("User Login Successfull!");
+                        console.log("Login Successfull ", oData);
+                        that.getOwnerComponent().getModel("userModel").setProperty("/userData",oData.results);
+                        const oRoute = sap.ui.core.UIComponent.getRouterFor(that);
+                        oRoute.navTo("dashboard");
+                    }else{
+                        that.getOwnerComponent().getModel("userModel").setProperty("/userData","");
+                        MessageToast.show("User Login Failed!");
+                        console.log("Error ", oError)
+                    }
+                    
                 },
                 error: function (oError) {
                     MessageToast.show("User Login Failed!");
@@ -141,6 +149,7 @@ sap.ui.define([
 
             })
         },
+        
         toLoginPressed: function () {
             var oView = this.getView();
             oView.byId("rightPanelLogin").setVisible(true);
