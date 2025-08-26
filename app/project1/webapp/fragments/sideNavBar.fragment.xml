@@ -1,0 +1,41 @@
+<core:FragmentDefinition
+xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:f="sap.f"
+    xmlns:core="sap.ui.core"
+    xmlns:tnt="sap.tnt"
+    xmlns:form="sap.ui.layout.form"
+    xmlns:m="sap.m"
+    displayBlock="true"
+>
+
+            <tnt:SideNavigation>
+                <tnt:NavigationList selectedKey="dashboard">
+                    <tnt:NavigationListItem
+                        text="Dashboard"
+                        icon="sap-icon://home"
+                        press=".onSideNavItemPress"
+                        key="dashboard"
+                    />
+                    <tnt:NavigationListItem
+                        text="Add Expense"
+                        icon="sap-icon://cart"
+                        press=".onSideNavItemPress"
+                        key="addExpense"
+                    />
+                    <tnt:NavigationListItem
+                        text="View Analysis"
+                        icon="sap-icon://customer"
+                        press=".onSideNavItemPress"
+                        key="viewAnalysis"
+                    />
+                    <tnt:NavigationListItem
+                        text="View Expense Details"
+                        icon="sap-icon://product"
+                        press=".onSideNavItemPress"
+                        key="expenseDetails"
+                    />
+                </tnt:NavigationList>
+            </tnt:SideNavigation>
+       
+</core:FragmentDefinition>

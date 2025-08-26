@@ -1,0 +1,12 @@
+<mvc:View
+    controllerName="aditi.expense.ui.project1.controller.ViewAnalysis"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:f="sap.f"
+    xmlns:core="sap.ui.core"
+    xmlns:tnt="sap.tnt"
+    xmlns:form="sap.ui.layout.form"
+    xmlns:m="sap.m"
+    displayBlock="true"
+>
+</mvc:View>

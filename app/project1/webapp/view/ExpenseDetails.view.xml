@@ -1,0 +1,98 @@
+<mvc:View
+    controllerName="aditi.expense.ui.project1.controller.ExpenseDetails"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:form="sap.ui.layout.form"
+    xmlns:tnt="sap.tnt"
+    xmlns:m="sap.m"
+    displayBlock="true"
+    xmlns:f="sap.f"
+>
+    <tnt:ToolPage id="mainToolPage">
+        <tnt:header>
+            <tnt:ToolHeader>
+                <m:Text text="My Dashboard" />
+                <f:Avatar initials="AD" />
+            </tnt:ToolHeader>
+        </tnt:header>
+        <tnt:sideContent>
+            <tnt:SideNavigation>
+                <tnt:NavigationList selectedKey="dashboard">
+                    <tnt:NavigationListItem
+                        text="Dashboard"
+                        icon="sap-icon://home"
+                        press=".onSideNavItemPress"
+                        key="dashboard"
+                    />
+                    <tnt:NavigationListItem
+                        text="Add Expense"
+                        icon="sap-icon://cart"
+                        press=".onSideNavItemPress"
+                        key="addExpense"
+                    />
+                    <tnt:NavigationListItem
+                        text="View Analysis"
+                        icon="sap-icon://customer"
+                        press=".onSideNavItemPress"
+                        key="viewAnalysis"
+                    />
+                    <tnt:NavigationListItem
+                        text="View Expense Details"
+                        icon="sap-icon://product"
+                        press=".onSideNavItemPress"
+                        key="expenseDetails"
+                    />
+                </tnt:NavigationList>
+            </tnt:SideNavigation>
+        </tnt:sideContent>
+        <tnt:mainContents>
+            <Page>
+                <Table
+                    id="productTable"
+                    headerText="Customer Details"
+                    items="{expenses}"
+                >
+                    <columns>
+                        <Column>
+                            <Text text="Expense Title" />
+                        </Column>
+                        <Column>
+                            <Text text="Amount" />
+                        </Column>
+                        <Column>
+                            <Text text="Date" />
+                        </Column>
+                        <Column>
+                            <Text text="Description" />
+                        </Column>
+                    </columns>
+                    <items>
+                        <ColumnListItem type="Active">
+                            <cells>
+                                <Text text="{title}" />
+                                <Text text="{amount}" />
+                                <Text text="{date}" />
+
+                                <Text text="{note}" />
+                            </cells>
+                        </ColumnListItem>
+                    </items>
+                </Table>
+                <Toolbar>
+                    <Button
+                        text="Previous"
+                        type="Emphasized"
+                        press="loadPreviousProductData"
+                    />
+                    <ToolbarSpacer />
+                    <Button
+                        text="Next"
+                        press="loadNextProductData"
+                        type="Emphasized"
+                       />
+                </Toolbar>
+            </Page>
+        </tnt:mainContents>
+    </tnt:ToolPage>
+</mvc:View>

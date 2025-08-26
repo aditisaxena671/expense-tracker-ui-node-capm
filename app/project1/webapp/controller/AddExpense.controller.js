@@ -1,11 +1,16 @@
 sap.ui.define([
   "sap/ui/core/mvc/Controller",
-  "sap/m/MessageToast"
+  "sap/m/MessageToast",
+  "aditi/expense/ui/project1/util/NavigationHelper"
 
-], (Controller, MessageToast) => {
+], (Controller, MessageToast,NavigationHelper) => {
   "use strict";
   return Controller.extend("aditi.expense.ui.project1.controller.AddExpense", {
     onInit() {
+      
+    },
+    onSideNavItemPress: function (oEvent) {
+      NavigationHelper.onSideNavItemPress(oEvent,this);
     },
     onSave: async function () {
 

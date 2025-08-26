@@ -114,6 +114,17 @@
           "pattern": "addExpense",
           "name": "addExpense",
           "target": "addExpense"
+        },
+        {
+          "pattern": "expenseDetails",
+          "name": "expenseDetails",
+          "target": "expenseDetails"
+        }
+        ,
+        {
+          "pattern": "viewAnalysis",
+          "name": "viewAnalysis",
+          "target": "viewAnalysis"
         }
       ],
       "targets": {
@@ -128,6 +139,12 @@
         },
         "addExpense":{
           "viewName": "AddExpense"  
+        },
+        "viewAnalysis":{
+          "viewName": "ViewAnalysis"  
+        },
+        "expenseDetails":{
+          "viewName": "ExpenseDetails"
         }
       }
     },

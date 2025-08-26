@@ -32,16 +32,16 @@
                         key="addExpense"
                     />
                     <tnt:NavigationListItem
-                        text="Customers"
+                        text="View Analysis"
                         icon="sap-icon://customer"
                         press=".onSideNavItemPress"
-                        key="customers"
+                        key="viewAnalysis"
                     />
                     <tnt:NavigationListItem
-                        text="Products"
+                        text="View Expense Details"
                         icon="sap-icon://product"
                         press=".onSideNavItemPress"
-                        key="products"
+                        key="expenseDetails"
                     />
                 </tnt:NavigationList>
             </tnt:SideNavigation>
