@@ -69,6 +69,9 @@
                         <Column>
                             <Text text="Category" />
                         </Column>
+                        <Column>
+                            <Text text="Action" />
+                        </Column>
                     </columns>
                     <items>
                         <ColumnListItem type="Active">
@@ -78,24 +81,28 @@
                                 <Text text="{date}" />
 
                                 <Text text="{note}" />
-                                 <Text text="{category/description}" />
+                                <Text text="{category/description}" />
+                                <Button icon="sap-icon://delete" text="" type="Emphasized"  press="deleteItemBtn" />
                             </cells>
                         </ColumnListItem>
                     </items>
                 </Table>
-                <Toolbar>
-                    <Button
-                        text="Previous"
-                        type="Emphasized"
-                        press="loadPreviousProductData"
-                    />
-                    <ToolbarSpacer />
-                    <Button
-                        text="Next"
-                        press="loadNextProductData"
-                        type="Emphasized"
-                       />
-                </Toolbar>
+                <footer>
+                    <Toolbar>
+                        <Button
+                            text="Previous Month"
+                            press=".onPreviousMonth"
+                        />
+                        <ToolbarSpacer />
+                        <Label text="Total Expenditure"/>
+                        <Label id="totalExpense"/>
+                        <ToolbarSpacer />
+                        <Button
+                            text="Next Month"
+                            press=".onNextMonth"
+                        />
+                    </Toolbar>
+                </footer>
             </Page>
         </tnt:mainContents>
     </tnt:ToolPage>

@@ -13,140 +13,156 @@
         <VBox width="60%">
             <Button text="panel1" />
         </VBox>
-        <VBox  width="40%" alignItems="Center" justifyContent="Center" class="rightPanel" visible="true">
-            <l:VerticalLayout id="rightPanelRegister" width="100%" >
-            <Title text="Create Account" level="H2" class="sapUiSmallMarginBottom" />
-                <Label
-                    text="First Name"
-                    labelFor="First Name"
-                    design="Bold" 
-                />
-                <Input
-                
-                    id="firstNameInput"
-                    placeholder="Enter First Name"
-                    class="sapUiSmallMarginBottom"
-                />
+        <VBox
+            width="40%"
+            alignItems="Center"
+            justifyContent="Center"
+            class="rightPanel"
+            visible="true"
+        >
+            <l:VerticalLayout
+                id="rightPanelRegister"
+                width="100%"
+            >
+                <form:SimpleForm
+                    editable="true"
+                    layout="ResponsiveGridLayout"
+                    xmlns:form="sap.ui.layout.form"
+                    xmlns="sap.m"
+                >
+                    <Title
+                        text="Register"
+                        level="H2"
+                    />
 
-                <Label
-                design="Bold" 
-                    text="Last Name"
-                    labelFor="Last Name"
-                />
-                <Input
-                    id="lastNameInput"
-                    placeholder="Enter Last Name"
-                    class="sapUiSmallMarginBottom"
-                />
+                    <Label text="First Name" />
+                    <Input
+                        id="firstNameInput"
+                        placeholder="Enter First Name"
+                    />
 
-                <Label
-                    text="Email"
-                    labelFor="inputEmail"
-                    design="Bold" 
-                />
-                <Input
-                    id="inputEmail"
-                    type="Email"
-                    placeholder="Enter email"
-                    class="sapUiSmallMarginBottom"
-                />
-                <Label
-                    text="Password"
-                    labelFor="Password"
-                    design="Bold" 
-                />
-                <Input
-                    type="Password"
-                    id="passwordInput"
-                    placeholder="Password"
-                    class="sapUiSmallMarginBottom"
-                />
-                <Label
-                    text="Confirm Password"
-                    design="Bold" 
-                    labelFor="Confirm Password"
-                />
-                <Input
-                    type="Password"
-                    id="confirmPasswordInput"
-                    placeholder="Confirm Password"
-                    class="sapUiSmallMarginBottom"
-                    
-                />
+                    <Label text="Last Name" />
+                    <Input
+                        id="lastNameInput"
+                        placeholder="Enter Last Name"
+                    />
+
+                    <Label text="Email" />
+                    <Input
+                        id="inputEmail"
+                        type="Email"
+                        placeholder="Enter Email"
+                    />
+
+                    <Label text="Password" />
+                    <Input
+                        id="passwordInput"
+                        type="Password"
+                        placeholder="Enter Password"
+                    />
+
+                    <Label text="Confirm Password" />
+                    <Input
+                        id="confirmPasswordInput"
+                        type="Password"
+                        placeholder="Confirm Password"
+                    />
+
                     <Button
-                    type="Emphasized"
-                    text="Register"
-                    press="onRegisterPress"
-                    class="sapUiMediumMarginTop"
-                />
-				<Label
-				    id="showErrorRegister"
-				    visible="false"
-                    text="Some fields are empty"
-                    design="Bold" 
-                />
+                        type="Emphasized"
+                        text="Register"
+                        press="onRegisterPress"
+                        class="sapUiSmallMarginTop"
+                    />
+
+                    <MessageStrip
+                        id="showErrorRegister"
+                        text="Some fields are empty"
+                        type="Error"
+                        showIcon="true"
+                        showCloseButton="true"
+                        visible="false"
+                    />
+                </form:SimpleForm>
             </l:VerticalLayout>
             <!-- login -->
-            <l:VerticalLayout id="rightPanelLogin" width="100%" visible="false" >
-            <Title text="Create Account" level="H2" class="sapUiSmallMarginBottom" />
-                
-                <Label
-                    text="Email"
-                    labelFor="inputEmail"
-                    design="Bold" 
-                />
-                <Input
-                    id="loginEmail"
-                    type="Email"
-                    placeholder="Enter email"
-                    class="sapUiSmallMarginBottom"
-                />
-                <Label
-                    text="Password"
-                    labelFor="Password"
-                    design="Bold" 
-                />
-                <Input
-                    type="Password"
-                    id="loginPassword"
-                    placeholder="Password"
-                    class="sapUiSmallMarginBottom"
-                />
-                
-                <Button
-                    type="Emphasized"
-                    text="Login"
-                    press="onLoginPress"
-                    class="sapUiMediumMarginTop"
-                />
-                
-				<Label
-				    id="showErrorLogin"
-				    visible="false"
-                    text="Some fields are empty"
-                    design="Bold" 
-                />
-            </l:VerticalLayout>
-            <HBox class="sapUiSmallMargin" >
+            <l:VerticalLayout
+                id="rightPanelLogin"
+                width="100%"
+                visible="false"
+            >
+                <form:SimpleForm
+                    editable="true"
+                    layout="ResponsiveGridLayout"
+                    xmlns:form="sap.ui.layout.form"
+                    xmlns="sap.m"
+                >
+                    <Title
+                        text="Login"
+                        level="H2"
+                    />
+
+                    <Label
+                        text="Email"
+                        labelFor="inputEmail"
+                        design="Bold"
+                    />
+                    <Input
+                        id="loginEmail"
+                        type="Email"
+                        placeholder="Enter email"
+                        class="sapUiSmallMarginBottom"
+                    />
+                    <Label
+                        text="Password"
+                        labelFor="Password"
+                        design="Bold"
+                    />
+                    <Input
+                        type="Password"
+                        id="loginPassword"
+                        placeholder="Password"
+                        class="sapUiSmallMarginBottom"
+                    />
+
                     <Button
-                    type="Emphasized"
-                    text="Register"
-                    press="toRegisterPressed"
-                    class="sapUiMediumMarginTop"
-                    visible="false"
-                    id="goRegister"
-                />
-                <Button
-                    type="Emphasized"
-                    text="Login"
-                    press="toLoginPressed"
-                    class="sapUiMediumMarginTop"
-                    id="goLogin"
-                />
-                </HBox>
+                        type="Emphasized"
+                        text="Login"
+                        press="onLoginPress"
+                        class="sapUiSmallMarginTop"
+                    />
+
+                    <Label
+                        id="showErrorLogin"
+                        visible="false"
+                        text="Some fields are empty"
+                        design="Bold"
+                    />
+                </form:SimpleForm>
+            </l:VerticalLayout>
+            <HBox class="sapUiSmallMargin">
+                <VBox id="goRegister" visible="false">
+                    <Label
+                        text="Doesn't have an account?"
+                        design="Bold"
+                    />
+                    <Link
+                        text="Register"
+                        press="toRegisterPressed"
+                    />
+                </VBox>
+                
+                <VBox id="goLogin">
+                    <Label
+                        text="Alredy have an account?"
+                        design="Bold"
+                    />
+                    <Link
+                        text="Login"
+                        press="toLoginPressed"
+                    />
+                </VBox>
+            </HBox>
         </VBox>
-        
-        
     </HBox>
-    
 </mvc:View>
