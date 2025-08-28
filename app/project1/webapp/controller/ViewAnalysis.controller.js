@@ -1,13 +1,22 @@
 sap.ui.define([
     "sap/ui/core/mvc/Controller",
-    "aditi/expense/ui/project1/util/NavigationHelper"
-],(Controller,NavigationHelper)=>{
-    return Controller.extend("aditi.expense.ui.project1.controller.ViewAnalysis",{
-        onInit(){
-            
+    "aditi/expense/ui/project1/util/NavigationHelper",
+    "aditi/expense/ui/project1/util/Login"
+
+], (Controller, NavigationHelper, Login) => {
+    return Controller.extend("aditi.expense.ui.project1.controller.ViewAnalysis", {
+        onInit() {
+            const oUser = this.getOwnerComponent().getModel("userModel").getProperty("/userData");
+            if (!oUser) {
+                console.log("user need to login");
+                Login.loginRequired(this);
+                var oView = this.getOwnerComponent().getView()
+            }
+            const UserId = oUser.loginID;
+            this.getView().bindElement("/Users(" + UserId + ")");
         },
-        onSideNavItemPress: function(oEvent){
-            NavigationHelper.onSideNavItemPress(oEvent,this);
+        onSideNavItemPress: function (oEvent) {
+            NavigationHelper.onSideNavItemPress(oEvent, this);
         }
     });
 });

@@ -9,7 +9,7 @@
     displayBlock="true"
     xmlns:f="sap.f"
 >
-    <tnt:ToolPage id="mainToolPage">
+    <tnt:ToolPage>
         <tnt:header>
             <tnt:ToolHeader>
                 <m:Text text="My Dashboard" />

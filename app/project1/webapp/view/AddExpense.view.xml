@@ -119,15 +119,16 @@
                                 />
 
                                 <!-- Category -->
-                                <!-- <Select
-                                    items="{/categories}"
+                                <ComboBox
+                                    items="{/Categories}"
                                     width="100%"
+                                    placeholder="Category"
                                 >
                                     <core:Item
-                                        key="{id}"
-                                        text="{categoryName}"
+                                        key="{ID}"
+                                        text="{description}"
                                     />
-                                </Select> -->
+                                </ComboBox>
                             </VBox>
                         </Panel>
                     </VBox>
