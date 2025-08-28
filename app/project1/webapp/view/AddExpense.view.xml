@@ -120,6 +120,7 @@
 
                                 <!-- Category -->
                                 <ComboBox
+                                id="inputCategory"
                                     items="{/Categories}"
                                     width="100%"
                                     placeholder="Category"

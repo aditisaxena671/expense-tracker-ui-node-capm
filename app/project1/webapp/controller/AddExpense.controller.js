@@ -13,7 +13,7 @@ sap.ui.define([
       if (!oUser) {
         console.log("user need to login");
         Login.loginRequired(this);
-        var oView = this.getOwnerComponent().getView()
+        return;
       }
       const UserId = oUser.loginID;
       this.getView().bindElement("/Users(" + UserId + ")");
@@ -29,7 +29,7 @@ sap.ui.define([
       var inputAmount = oView.byId("inputAmount").getValue();
       var inputDate = oView.byId("inputDate").getValue();
       var inputNotes = oView.byId("inputNotes").getValue();
-      // var firstName = oView.byId("firstNameInput").getValue();
+      var category_ID = oView.byId("inputCategory").getSelectedKey();
       if (!inputTitle) {
         this.getView().byId("showErrorInExpense").setText("Please Enter Title for your expense")
         this.getView().byId("showErrorInExpense").setVisible(true);
@@ -45,12 +45,18 @@ sap.ui.define([
         this.getView().byId("showErrorInExpense").setVisible(true);
         return;
       }
+      if (!category_ID) {
+        this.getView().byId("showErrorInExpense").setText("Please Select Category for your expense")
+        this.getView().byId("showErrorInExpense").setVisible(true);
+        return;
+      }
       var oPayload = {
         title: inputTitle,
         amount: inputAmount,
         date: inputDate,
         note: inputNotes,
-        user_ID: user_ID
+        user_ID: user_ID,
+        category_ID:category_ID
       };
       try {
         const response = await fetch("/odata/v4/expense/Expenses", {

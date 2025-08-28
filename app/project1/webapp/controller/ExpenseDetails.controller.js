@@ -13,7 +13,7 @@ sap.ui.define([
             if(!oUser){
                 console.log("user need to login");
                 Login.loginRequired(this);
-                var oView= this.getOwnerComponent().getView()
+                return;
             }
             const UserId = oUser.loginID;
             this.getView().bindElement("/Users(" + UserId + ")");
@@ -21,25 +21,6 @@ sap.ui.define([
         onSideNavItemPress: function (oEvent) {
             NavigationHelper.onSideNavItemPress(oEvent,this);
         },
-        // loginRequired: function () {
-		// 	if (!this.oDefaultMessageDialog) {
-		// 		this.oDefaultMessageDialog = new Dialog({
-		// 			type: DialogType.Message,
-		// 			title: "Login Required",
-		// 			content: new Text({ text: "Please Login to continue" }),
-		// 			beginButton: new Button({
-		// 				type: ButtonType.Emphasized,
-		// 				text: "OK",
-		// 				press: function () {
-		// 					this.oDefaultMessageDialog.close();
-        //                     const oRoute = sap.ui.core.UIComponent.getRouterFor(this);
-        //                     oRoute.navTo("login");
-		// 				}.bind(this)
-		// 			})
-		// 		});
-		// 	}
-
-		// 	this.oDefaultMessageDialog.open();
-		// }
+       
     });
 });

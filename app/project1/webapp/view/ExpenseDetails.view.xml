@@ -66,6 +66,9 @@
                         <Column>
                             <Text text="Description" />
                         </Column>
+                        <Column>
+                            <Text text="Category" />
+                        </Column>
                     </columns>
                     <items>
                         <ColumnListItem type="Active">
@@ -75,6 +78,7 @@
                                 <Text text="{date}" />
 
                                 <Text text="{note}" />
+                                 <Text text="{category/description}" />
                             </cells>
                         </ColumnListItem>
                     </items>

@@ -13,7 +13,7 @@ sap.ui.define([
             if(!oUser){
                 console.log("user need to login");
                 Login.loginRequired(this);
-                var oView= this.getOwnerComponent().getView()
+                return;
             }
             const UserId = oUser.loginID;
             this.getView().bindElement("/Users(" + UserId + ")");
